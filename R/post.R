@@ -23,6 +23,12 @@
 #'        `media` (i.e. as many alt text entries as there are `media` entries). See
 #'        [the official API documentation](https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-metadata-create)
 #'        for more information.
+#' @param lat latitude of the location the tweet refers to. Range should be
+#'   between -90 and 90 (north).
+#' @param long longitude of the location the tweet refers to. Range should be
+#'   between -180 and 180 (west).
+#' @param display_coordinates put a pin on the exact coordinates a tweet has
+#'   been sent from
 #' @examples
 #' \dontrun{
 #' ## generate data to make/save plot (as a .png file)
@@ -72,7 +78,10 @@ post_tweet <- function(status = "my first rtweet #rstats",
                        destroy_id = NULL,
                        retweet_id = NULL,
                        auto_populate_reply_metadata = FALSE,
-                       media_alt_text = NULL) {
+                       media_alt_text = NULL,
+                       lat = NULL,
+                       long = NULL,
+                       display_coordinates = FALSE) {
 
   ## check token
   token <- check_token(token)
@@ -168,6 +177,17 @@ post_tweet <- function(status = "my first rtweet #rstats",
       status = status
     )
   }
+  
+  ## geotag if provided
+  if (!is.null(lat) && !is.null(long)) {
+    params[["lat"]] <- round(as.double(lat), 8)
+    params[["long"]] <- round(as.double(long), 8)
+  
+    if (isTRUE(display_coordinates)) {
+      params[["display_coordinates"]] <- "true"
+    }
+  }
+  
   query <- "statuses/update"
   if (!is.null(in_reply_to_status_id)) {
     params[["in_reply_to_status_id"]] <- in_reply_to_status_id
