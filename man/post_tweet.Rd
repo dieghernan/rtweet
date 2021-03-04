@@ -55,14 +55,14 @@ metadata to the \code{media} you are uploading. Should be same length as
 \href{https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-metadata-create}{the official API documentation}
 for more information.}
 
-\item{lat}{latitude of the location the tweet refers to. Range should be
+\item{lat}{Latitude of the location the tweet refers to. Range should be
 between -90 and 90 (north).}
 
-\item{long}{longitude of the location the tweet refers to. Range should be
+\item{long}{Longitude of the location the tweet refers to. Range should be
 between -180 and 180 (west).}
 
-\item{display_coordinates}{put a pin on the exact coordinates a tweet has
-been sent from}
+\item{display_coordinates}{Put a pin on the exact coordinates a tweet has
+been sent from.}
 }
 \description{
 Posts status update to user's Twitter account

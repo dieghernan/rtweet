@@ -23,12 +23,12 @@
 #'        `media` (i.e. as many alt text entries as there are `media` entries). See
 #'        [the official API documentation](https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-metadata-create)
 #'        for more information.
-#' @param lat latitude of the location the tweet refers to. Range should be
+#' @param lat Latitude of the location the tweet refers to. Range should be
 #'   between -90 and 90 (north).
-#' @param long longitude of the location the tweet refers to. Range should be
+#' @param long Longitude of the location the tweet refers to. Range should be
 #'   between -180 and 180 (west).
-#' @param display_coordinates put a pin on the exact coordinates a tweet has
-#'   been sent from
+#' @param display_coordinates Put a pin on the exact coordinates a tweet has
+#'   been sent from.
 #' @examples
 #' \dontrun{
 #' ## generate data to make/save plot (as a .png file)
